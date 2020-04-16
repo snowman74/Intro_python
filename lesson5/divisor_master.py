@@ -44,7 +44,7 @@ def devisors_list(x):
         answer = 1
     elif 2 <= x <= 1000 and type(x) is int:
         answer = []
-        for i in range(2, x):
+        for i in range(1, x+1):
             if x % i == 0:
                 answer.append(i)
     return answer
