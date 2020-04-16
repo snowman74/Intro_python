@@ -7,7 +7,7 @@
 import divisor_master
 print(divisor_master.simple_number(59))
 print(divisor_master.canon_factorization(999))
-print(divisor_master.top_simple_devisor(973))
+print(divisor_master.top_simple_devisor(500))
 print(divisor_master.simple_number(499))
 print(divisor_master.devisors_list(500))
 print(divisor_master.top_devisor(798))
