@@ -27,13 +27,14 @@ def simple_number(x):
     elif x == 1:
         answer = '''К началу XX века математики стали приходить к консенсусу о том,
     что 1 не является простым числом, а скорее формирует свою специальную категорию — «единицу» (© Wikipedia)'''
-    elif 2 <= x <= 1000 and type(x) is int:
+    elif 2 <= x <= 1000:
         n = []
         for i in range(2, x):
             if x % i == 0:
                 n.append(i)
         if n == []: answer = True
         else: answer = False
+    elif x > 1000: answer = 'Число вне диапазона'
     return answer
 
 #2
@@ -47,7 +48,7 @@ def devisors_list(x):
         answer = 'Необходимо ввести целое положительное число.'
     elif x == 1:
         answer = 1
-    elif 2 <= x <= 1000 and type(x) is int:
+    elif 2 <= x <= 1000:
         answer = []
         for i in range(1, x+1):
             if x % i == 0:
@@ -64,7 +65,7 @@ def top_simple_devisor(x):
     m = []
     n = devisors_list(x)
     for i in n:
-        if simple_number(i) == True:
+        if simple_number(i):
             m.append(i)
     return m[-1]
 
@@ -107,10 +108,14 @@ def top_devisor(x):
         answer = 'Необходимо ввести целое положительное число.'
     elif x == 1:
         answer = 1
-    elif 2 <= x <= 1000 and type(x) is int:
+    elif 2 <= x <= 1000:
         n = []
         for i in range(2, x):
             if x % i == 0:
                 n.append(i)
         answer = n[-1]
+    elif x > 1000: answer = 'Число вне диапазона'
     return answer
+
+x = top_devisor(654.1)
+print(x)
