@@ -59,7 +59,7 @@ def popular_name(list_names):
     :param list_names: на вход подаётся список имён
     :return:    на выходе самое частое имя
     '''
-    list_names.sort()
+    list_names = sorted(list_names)
     dictionary = {}
     # кусок из предыдущего урока (чего коду пропадать)
     for i in list_names:
@@ -69,9 +69,7 @@ def popular_name(list_names):
         if list_names[i] == list_names[i + 1]:
             dictionary[list_names[i]] += 1
 
-    popular_words_list = list(dictionary.items())
-    popular_words_list.sort(key=lambda i: i[1])
-    popular_words_list.reverse()
+    popular_words_list = sorted(list(dictionary.items()), key=lambda i: i[1], reverse=True)
     popular_words_list = popular_words_list[:1]
 
     if popular_words_list[0][1] == 1:
@@ -96,7 +94,7 @@ def rare_letter(list_words):
     for i in list_words:
         letters_list.append(i[:1])
 
-    letters_list.sort()
+    letters_list = sorted(letters_list)
     # кусок из предыдущего урока (чего коду пропадать)
     for i in letters_list:
         dictionary[i] = 1
@@ -105,8 +103,7 @@ def rare_letter(list_words):
         if letters_list[i] == letters_list[i + 1]:
             dictionary[letters_list[i]] += 1
 
-    letters_list = list(dictionary.items())
-    letters_list.sort(key=lambda i: i[1])
+    letters_list = sorted(list(dictionary.items()), key=lambda i: i[1])
 
     return letters_list[0][0]
 
